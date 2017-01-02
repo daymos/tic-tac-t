@@ -1,0 +1,87 @@
+{
+  "name": "chat",
+  "version": "1.0.0",
+  "description": "small chat interface",
+  "main": "index.html",
+  "scripts": {
+    "lint": "eslint .",
+    "build": "npm run clean && npm run copy-files && webpack",
+    "copy-files": "cp src/index.html dist/index.html",
+    "clean": "rm -rf dist/*",
+    "dev": "npm run clean && npm run copy-files && webpack --watch --inline --progress",
+    "precommit": "npm run lint & nyc npm run test",
+    "test": "ava ./tests/logicSpecs.js",
+    "debug": "babel-node --inspect node_modules/ava/profile.js ./tests/logicSpecs.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Mattia Spinelli <matt.321null@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "ava": "^0.17.0",
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.18.2",
+    "babel-eslint": "^7.1.0",
+    "babel-loader": "^6.2.7",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-env": "^1.1.4",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-stage-2": "^6.17.0",
+    "babel-register": "^6.18.0",
+    "css-loader": "^0.26.1",
+    "data.task": "^3.1.1",
+    "eslint": "^3.10.2",
+    "eslint-config-airbnb-base": "^10.0.1",
+    "eslint-plugin-fp": "^2.2.0",
+    "eslint-plugin-import": "^2.2.0",
+    "husky": "^0.12.0",
+    "ramda": "^0.23.0",
+    "style-loader": "^0.13.1",
+    "tap-dot": "^1.0.5",
+    "webpack": "^1.14.0"
+  },
+  "dependencies": {
+    "jquery": "^3.1.1"
+  },
+  "eslintConfig": {
+    "env": {
+      "es6": true
+    },
+    "plugins": [
+      "fp"
+    ],
+    "rules": {
+      "fp/no-arguments": "error",
+      "fp/no-class": "error",
+      "fp/no-delete": "error",
+      "fp/no-events": "error",
+      "fp/no-get-set": "error",
+      "fp/no-let": "error",
+      "fp/no-loops": "error",
+      "fp/no-mutating-assign": "error",
+      "fp/no-mutating-methods": "error",
+      "fp/no-mutation": "error",
+      "fp/no-nil": "error",
+      "fp/no-proxy": "error",
+      "fp/no-rest-parameters": "error",
+      "fp/no-this": "error",
+      "fp/no-throw": "error",
+      "fp/no-unused-expression": "error",
+      "fp/no-valueof-field": "error",
+      "no-var": "error"
+    }
+  },
+  "ava": {
+    "babel": {
+      "presets": [
+        "es2015",
+        "latest"
+      ]
+    },
+    "require": [
+      "babel-register"
+    ]
+  }
+}
