@@ -1,7 +1,7 @@
 {
-  "name": "chat",
+  "name": "tic-tac-t",
   "version": "1.0.0",
-  "description": "small chat interface",
+  "description": "functional tic-tac-toe game with minimax",
   "main": "index.html",
   "scripts": {
     "lint": "eslint .",
